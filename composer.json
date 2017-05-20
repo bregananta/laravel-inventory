@@ -1,0 +1,37 @@
+{
+    "name": "bregananta/inventory",
+    "description": "Inventory management using Laravel 4 / 5",
+    "keywords": ["laravel", "inventory", "inventory-management"],
+    "authors": [
+        {
+            "name": "Kunto Bregananta",
+            "email": "bregananta@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/database": "4.* | 5.*",
+        "illuminate/support": "4.* | 5.*",
+        "baum/baum": "1.0.* | 1.1.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*",
+        "mockery/mockery": "0.9.*"
+    },
+    "archive": {
+      "exclude": ["/tests"]
+    },
+    "autoload": {
+        "psr-4": {
+            "Bregananta\\Inventory\\": "src/"
+        }
+    },
+    "autoload-dev":
+    {
+        "psr-4": {
+          "Bregananta\\Inventory\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable"
+}
