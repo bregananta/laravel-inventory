@@ -42,7 +42,7 @@ class CreateInventoryTables extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('inventory_id')->unsigned();
             $table->integer('location_id')->unsigned();
-            $table->decimal('quantity', 8, 2)->default(0);
+            $table->decimal('quantity', 10, 2)->default(0);
             $table->string('aisle')->nullable();
             $table->string('row')->nullable();
             $table->string('bin')->nullable();
@@ -73,9 +73,9 @@ class CreateInventoryTables extends Migration
 
             $table->integer('stock_id')->unsigned();
             $table->integer('user_id')->unsigned()->nullable();
-            $table->decimal('before', 8, 2)->default(0);
-            $table->decimal('after', 8, 2)->default(0);
-            $table->decimal('cost', 8, 2)->default(0)->nullable();
+            $table->decimal('before', 10, 2)->default(0);
+            $table->decimal('after', 10, 2)->default(0);
+            $table->decimal('cost', 15, 2)->default(0)->nullable();
             $table->string('reason')->nullable();
 
             $table->foreign('stock_id')->references('id')->on('inventory_stocks')
