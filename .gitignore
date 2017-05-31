@@ -1,3 +1,8 @@
 /vendor
 composer.phar
 composer.lock
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/vcs.xml
+/.idea/laravel-inventory.iml
+/.idea/php.xml
