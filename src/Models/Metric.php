@@ -7,7 +7,7 @@ namespace Bregananta\Inventory\Models;
  */
 class Metric extends BaseModel
 {
-    protected $table = 'metrics';
+    protected $table = 'tb_inventory_metrics';
 
     /**
      * The hasMany inventory items relationship.

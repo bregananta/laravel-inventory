@@ -11,7 +11,7 @@ class InventoryStockMovement extends BaseModel
 {
     use InventoryStockMovementTrait;
 
-    protected $table = 'inventory_stock_movements';
+    protected $table = 'tb_inventory_stock_movements';
 
     protected $fillable = [
         'stock_id',

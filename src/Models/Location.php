@@ -9,7 +9,7 @@ use Baum\Node;
  */
 class Location extends Node
 {
-    protected $table = 'locations';
+    protected $table = 'tb_inventory_locations';
 
     protected $fillable = [
         'name',
