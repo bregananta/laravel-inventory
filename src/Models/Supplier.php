@@ -32,6 +32,6 @@ class Supplier extends BaseModel
      */
     public function items()
     {
-        return $this->belongsToMany('Bregananta\Inventory\Models\Inventory', 'inventory_suppliers', 'supplier_id')->withTimestamps();
+        return $this->belongsToMany('Bregananta\Inventory\Models\Inventory', 'tb_inventory_inventory_suppliers', 'supplier_id')->withTimestamps();
     }
 }

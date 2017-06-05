@@ -43,18 +43,18 @@ class SchemaCheckCommand extends Command
      * @var array
      */
     protected $reserved = [
-        'metrics',
-        'locations',
-        'categories',
-        'suppliers',
-        'inventory',
-        'inventory_skus',
-        'inventory_stocks',
-        'inventory_stock_movements',
-        'inventory_suppliers',
-        'inventory_transactions',
-        'inventory_transaction_histories',
-        'inventory_assemblies',
+        'tb_inventory_metrics',
+        'tb_inventory_locations',
+        'tb_inventory_categories',
+        'tb_inventory_suppliers',
+        'tb_inventory_inventory',
+        'tb_inventory_skus',
+        'tb_inventory_stocks',
+        'tb_inventory_stock_movements',
+        'tb_inventory_inventory_suppliers',
+        'tb_inventory_transactions',
+        'tb_inventory_transaction_histories',
+        'tb_inventory_assemblies',
     ];
 
     /**
