@@ -10,13 +10,13 @@ class CreateInventorySkuTable extends Migration
      */
     public function up()
     {
-        Schema::create('inventory_skus', function (Blueprint $table) {
+        Schema::create('tb_inventory_skus', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->integer('inventory_id')->unsigned();
             $table->string('code');
 
-            $table->foreign('inventory_id')->references('id')->on('inventories')
+            $table->foreign('inventory_id')->references('id')->on('tb_inventory_inventories')
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
 
@@ -32,6 +32,6 @@ class CreateInventorySkuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventory_skus');
+        Schema::dropIfExists('tb_inventory_skus');
     }
 }

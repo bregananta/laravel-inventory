@@ -10,7 +10,7 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('tb_inventory_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->integer('parent_id')->nullable()->index();
@@ -32,6 +32,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('tb_inventory_categories');
     }
 }

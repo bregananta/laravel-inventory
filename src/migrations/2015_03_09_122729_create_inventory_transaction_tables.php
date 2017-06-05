@@ -10,7 +10,7 @@ class CreateInventoryTransactionTables extends Migration
      */
     public function up()
     {
-        Schema::create('inventory_transactions', function (Blueprint $table) {
+        Schema::create('tb_inventory_transactions', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->integer('user_id')->unsigned()->nullable();
@@ -23,12 +23,12 @@ class CreateInventoryTransactionTables extends Migration
                 ->onUpdate('restrict')
                 ->onDelete('set null');
 
-            $table->foreign('stock_id')->references('id')->on('inventory_stocks')
+            $table->foreign('stock_id')->references('id')->on('tb_inventory_stocks')
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
         });
 
-        Schema::create('inventory_transaction_histories', function (Blueprint $table) {
+        Schema::create('tb_inventory_transaction_histories', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->integer('user_id')->unsigned()->nullable();
@@ -50,7 +50,7 @@ class CreateInventoryTransactionTables extends Migration
                 ->onUpdate('restrict')
                 ->onDelete('set null');
 
-            $table->foreign('transaction_id')->references('id')->on('inventory_transactions')
+            $table->foreign('transaction_id')->references('id')->on('tb_inventory_transactions')
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
         });
@@ -61,7 +61,7 @@ class CreateInventoryTransactionTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventory_transaction_histories');
-        Schema::dropIfExists('inventory_transactions');
+        Schema::dropIfExists('tb_inventory_transaction_histories');
+        Schema::dropIfExists('tb_inventory_transactions');
     }
 }
