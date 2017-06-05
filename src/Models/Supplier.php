@@ -8,7 +8,7 @@ class Supplier extends BaseModel
 {
     use SupplierTrait;
 
-    protected $table = 'suppliers';
+    protected $table = 'tb_inventory_suppliers';
 
     protected $fillable = [
         'name',

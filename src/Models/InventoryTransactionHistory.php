@@ -11,7 +11,7 @@ class InventoryTransactionHistory extends BaseModel
 {
     use InventoryTransactionHistoryTrait;
 
-    protected $table = 'inventory_transaction_histories';
+    protected $table = 'tb_inventory_transaction_histories';
 
     protected $fillable = [
         'user_id',
