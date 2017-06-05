@@ -10,10 +10,10 @@ class CreateInventoryVariantsTable extends Migration
      */
     public function up()
     {
-        Schema::table('inventories', function (Blueprint $table) {
+        Schema::table('tb_inventory_inventories', function (Blueprint $table) {
             $table->integer('parent_id')->unsigned()->nullable()->after('id');
 
-            $table->foreign('parent_id')->references('id')->on('inventories')
+            $table->foreign('parent_id')->references('id')->on('tb_inventory_inventories')
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
         });
@@ -24,7 +24,7 @@ class CreateInventoryVariantsTable extends Migration
      */
     public function down()
     {
-        Schema::table('inventories', function (Blueprint $table) {
+        Schema::table('tb_inventory_inventories', function (Blueprint $table) {
             $table->dropForeign('inventories_parent_id_foreign');
 
             $table->dropColumn('parent_id');

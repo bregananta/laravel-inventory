@@ -10,7 +10,7 @@ class CreateInventoryTables extends Migration
      */
     public function up()
     {
-        Schema::create('inventories', function (Blueprint $table) {
+        Schema::create('tb_inventory_inventories', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->softDeletes();
@@ -21,7 +21,7 @@ class CreateInventoryTables extends Migration
             $table->string('name');
             $table->text('description')->nullable();
 
-            $table->foreign('category_id')->references('id')->on('categories')
+            $table->foreign('category_id')->references('id')->on('tb_inventory_categories')
                 ->onUpdate('restrict')
                 ->onDelete('set null');
 
@@ -29,12 +29,12 @@ class CreateInventoryTables extends Migration
                 ->onUpdate('restrict')
                 ->onDelete('set null');
 
-            $table->foreign('metric_id')->references('id')->on('metrics')
+            $table->foreign('metric_id')->references('id')->on('tb_inventory_metrics')
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
         });
 
-        Schema::create('inventory_stocks', function (Blueprint $table) {
+        Schema::create('tb_inventory_stocks', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->softDeletes();
@@ -57,16 +57,16 @@ class CreateInventoryTables extends Migration
                 ->onUpdate('restrict')
                 ->onDelete('set null');
 
-            $table->foreign('inventory_id')->references('id')->on('inventories')
+            $table->foreign('inventory_id')->references('id')->on('tb_inventory_inventories')
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
 
-            $table->foreign('location_id')->references('id')->on('locations')
+            $table->foreign('location_id')->references('id')->on('tb_inventory_locations')
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
         });
 
-        Schema::create('inventory_stock_movements', function (Blueprint $table) {
+        Schema::create('tb_inventory_stock_movements', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->softDeletes();
@@ -78,7 +78,7 @@ class CreateInventoryTables extends Migration
             $table->decimal('cost', 15, 2)->default(0)->nullable();
             $table->string('reason')->nullable();
 
-            $table->foreign('stock_id')->references('id')->on('inventory_stocks')
+            $table->foreign('stock_id')->references('id')->on('tb_inventory_stocks')
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
 
@@ -93,8 +93,8 @@ class CreateInventoryTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventory_stock_movements');
-        Schema::dropIfExists('inventory_stocks');
-        Schema::dropIfExists('inventories');
+        Schema::dropIfExists('tb_inventory_stock_movements');
+        Schema::dropIfExists('tb_inventory_stocks');
+        Schema::dropIfExists('tb_inventory_inventories');
     }
 }

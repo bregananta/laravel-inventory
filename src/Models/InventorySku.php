@@ -11,7 +11,7 @@ class InventorySku extends BaseModel
 {
     use InventorySkuTrait;
 
-    protected $table = 'inventory_skus';
+    protected $table = 'tb_inventory_skus';
 
     protected $fillable = [
         'inventory_id',

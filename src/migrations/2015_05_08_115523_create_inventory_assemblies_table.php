@@ -10,7 +10,7 @@ class CreateInventoryAssembliesTable extends Migration
      */
     public function up()
     {
-        Schema::create('inventory_assemblies', function (Blueprint $table) {
+        Schema::create('tb_inventory_assemblies', function (Blueprint $table) {
 
             $table->increments('id');
             $table->timestamps();
@@ -18,8 +18,8 @@ class CreateInventoryAssembliesTable extends Migration
             $table->integer('part_id')->unsigned();
             $table->integer('quantity')->nullable();
 
-            $table->foreign('inventory_id')->references('id')->on('inventories')->onDelete('cascade');
-            $table->foreign('part_id')->references('id')->on('inventories')->onDelete('cascade');
+            $table->foreign('inventory_id')->references('id')->on('tb_inventory_inventories')->onDelete('cascade');
+            $table->foreign('part_id')->references('id')->on('tb_inventory_inventories')->onDelete('cascade');
 
         });
     }
@@ -29,6 +29,6 @@ class CreateInventoryAssembliesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventory_assemblies');
+        Schema::dropIfExists('tb_inventory_assemblies');
     }
 }

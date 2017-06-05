@@ -15,7 +15,7 @@ class Inventory extends BaseModel
     use InventoryVariantTrait;
     use AssemblyTrait;
 
-    protected $table = 'inventories';
+    protected $table = 'tb_inventory_inventories';
 
     protected $fillable = [
         'user_id',

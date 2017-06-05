@@ -12,7 +12,7 @@ class Category extends Node
 {
     use CategoryTrait;
 
-    protected $table = 'categories';
+    protected $table = 'tb_inventory_categories';
 
     protected $fillable = [
         'name',

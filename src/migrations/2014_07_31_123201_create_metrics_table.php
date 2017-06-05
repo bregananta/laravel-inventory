@@ -10,7 +10,7 @@ class CreateMetricsTable extends Migration
      */
     public function up()
     {
-        Schema::create('metrics', function (Blueprint $table) {
+        Schema::create('tb_inventory_metrics', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
@@ -29,6 +29,6 @@ class CreateMetricsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('metrics');
+        Schema::dropIfExists('tb_inventory_metrics');
     }
 }

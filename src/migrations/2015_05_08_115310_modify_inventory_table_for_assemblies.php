@@ -10,7 +10,7 @@ class ModifyInventoryTableForAssemblies extends Migration
      */
     public function up()
     {
-        Schema::table('inventories', function (Blueprint $table) {
+        Schema::table('tb_inventory_inventories', function (Blueprint $table) {
             $table->boolean('is_assembly')->default(false);
         });
     }
@@ -20,7 +20,7 @@ class ModifyInventoryTableForAssemblies extends Migration
      */
     public function down()
     {
-        Schema::table('inventories', function (Blueprint $table) {
+        Schema::table('tb_inventory_inventories', function (Blueprint $table) {
             $table->dropColumn('is_assembly');
         });
     }

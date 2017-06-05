@@ -10,7 +10,7 @@ class CreateInventorySupplierTables extends Migration
      */
     public function up()
     {
-        Schema::create('suppliers', function (Blueprint $table) {
+        Schema::create('tb_inventory_suppliers', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
@@ -28,18 +28,18 @@ class CreateInventorySupplierTables extends Migration
             $table->string('contact_email')->nullable();
         });
 
-        Schema::create('inventory_suppliers', function (Blueprint $table) {
+        Schema::create('tb_inventory_inventory_suppliers', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
             $table->integer('inventory_id')->unsigned();
             $table->integer('supplier_id')->unsigned();
 
-            $table->foreign('inventory_id')->references('id')->on('inventories')
+            $table->foreign('inventory_id')->references('id')->on('tb_inventory_inventories')
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
 
-            $table->foreign('supplier_id')->references('id')->on('suppliers')
+            $table->foreign('supplier_id')->references('id')->on('tb_inventory_suppliers')
                 ->onUpdate('restrict')
                 ->onDelete('cascade');
         });
@@ -50,7 +50,7 @@ class CreateInventorySupplierTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventory_suppliers');
-        Schema::dropIfExists('suppliers');
+        Schema::dropIfExists('tb_inventory_inventory_suppliers');
+        Schema::dropIfExists('tb_inventory_suppliers');
     }
 }
